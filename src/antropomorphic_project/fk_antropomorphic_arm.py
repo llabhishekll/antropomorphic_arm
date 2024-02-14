@@ -155,6 +155,7 @@ def main(args=None):
     # define arm optimize matrix
     AO3_simplify = arm_matrix.simplify_trigonometry(A03)
 
+    # define substitution for real value
     mapper = [
         (t1, t1_value),
         (t2, t2_value),
@@ -162,6 +163,8 @@ def main(args=None):
         (r2, 1.0),
         (r3, 1.0),
     ]
+
+    # calculate forward kinematic
     AO3_evaluated = arm_matrix.chain_substitution(AO3_simplify, mapper)
     AO3_evaluated = arm_matrix.simplify_values(AO3_evaluated)
     arm_matrix.preview(AO3_evaluated, name="A03_simplify_evaluated")

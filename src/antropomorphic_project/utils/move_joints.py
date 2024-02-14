@@ -30,6 +30,7 @@ class AntropomorphicArmMoverNode(object):
             Float64,
             queue_size=1,
         )
+        
         # test connection with antropomorphic arm
         self.check_connection()
 
@@ -68,13 +69,13 @@ class AntropomorphicArmMoverNode(object):
         message_joint2 = Float64()
         message_joint2.data = theta2
 
-        message_joint2 = Float64()
-        message_joint2.data = theta3
+        message_joint3 = Float64()
+        message_joint3.data = theta3
 
         # publish messages
         self.publisher_joint1.publish(message_joint1)
         self.publisher_joint2.publish(message_joint2)
-        self.publisher_joint3.publish(message_joint2)
+        self.publisher_joint3.publish(message_joint3)
 
     def spin(self, positions):
         # loop until shutdown requested
